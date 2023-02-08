@@ -54,6 +54,7 @@ body {
 
   /* backgroun: color image repeat position/size */
   background: var(--bgURL) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -185,4 +186,15 @@ body * {
 #footer {
   padding: 24px;
   font-size: 14px;
+}
+
+/* Media queries */
+@media (min-width: 700px){
+  :root{
+    --bgURL: url(./mode/dark-bg-desktop.jpg);
+  }
+
+  .light {
+    --bgURL: url(./mode/light-bg-desktop.jpg);
+  }
 }
