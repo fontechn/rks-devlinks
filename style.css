@@ -129,7 +129,7 @@ body * {
 
   background: var(--switchTrackBackColor);
   border: var(--switchTrackBorderColor);
-  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
 }
 
