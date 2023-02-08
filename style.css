@@ -8,6 +8,7 @@
   --switchIcon: url(./mode/dark-switch.svg);
   --switchTrackBackColor: var(--bodyBackColor);
   --switchTrackBorderColor: 1px solid var(--bodyBorderColor);
+  --switchOutlineColor: rgba(255, 255, 255, 0.2);
 
   --linksBackColor: var(--bodyBackColor);
   --linksBorderColor: var(--bodyBorderColor);
@@ -28,6 +29,7 @@
   --switchIcon: url(./mode/light-switch.svg);
   --switchTrackBackColor: var(--bodyBackColor);
   --switchTrackBorderColor: 1px solid var(--bodyBorderColor);
+  --switchOutlineColor: rgba(0, 0, 0, 0.1);
 
   --linksBackColor: var(--bodyBackColor);
   --linksBorderColor: var(--bodyBorderColor);
@@ -104,11 +106,20 @@ body * {
   z-index: 1;
   transform: translateY(-50%);
   top: 50%;
+
+  animation: slide-back 0.4s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--switchOutlineColor);
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+.light #switch button:hover {
+  outline: 8px solid var(--switchOutlineColor);
 }
 
 #switch span {
@@ -189,12 +200,31 @@ body * {
 }
 
 /* Media queries */
-@media (min-width: 700px){
-  :root{
+@media (min-width: 700px) {
+  :root {
     --bgURL: url(./mode/dark-bg-desktop.jpg);
   }
 
   .light {
     --bgURL: url(./mode/light-bg-desktop.jpg);
+  }
+}
+
+/* Animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
